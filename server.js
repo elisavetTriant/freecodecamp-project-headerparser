@@ -24,6 +24,14 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+// whoami API endpoint... 
+app.get("/api/whoami", function (req, res) {
+  let ip = req.ip;
+  let language  = req.headers["accept-language"];
+  let software = req.headers['user-agent'];
+
+  res.json({"ipaddress" : ip, "language" : language, "software" : software});
+});
 
 
 // listen for requests :)
